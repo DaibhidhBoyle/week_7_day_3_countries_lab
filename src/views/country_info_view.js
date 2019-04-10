@@ -24,20 +24,21 @@ CountryInfoView.prototype.render = function(country){
   const countryFlag = document.createElement('img');
   countryFlag.classList = 'flag';
   countryFlag.src = country.flag;
-  // const instruments = family.instruments;
-  // const instrumentsHeader = this.buildElement('h3','Instruments Include:');
-  // const instrumentsList = document.createElement('ul');
-  // instruments.forEach((instrument) => {
-  //   const listItem = this.buildElement('li', instrument);
-  //   instrumentsList.appendChild(listItem);
-  // });
+  const languages = country.languages;
+  const languagesHeader = this.buildElement('h3','Languages Spoken:');
+  const languageList = document.createElement('ul');
+  languages.forEach((language) => {
+    console.dir(language);
+    const listItem = this.buildElement('li', language.nativeName);
+    languageList.appendChild(listItem);
+  });
 
   infoParagraph.appendChild(countryName);
   infoParagraph.appendChild(countryRegion);
   infoParagraph.appendChild(countryFlag);
   // infoParagraph.appendChild(familyDescription);
-  // infoParagraph.appendChild(instrumentsHeader);
-  // infoParagraph.appendChild(instrumentsList);
+  infoParagraph.appendChild(languagesHeader);
+  infoParagraph.appendChild(languageList);
 
 
   this.container.innerHTML = '';
